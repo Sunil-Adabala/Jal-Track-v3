@@ -1,31 +1,71 @@
-// Your web app's Firebase configuration
-var firebaseConfig = {
-    apiKey: "AIzaSyD3L6fr1i1_Md4fxJQAPmS60lzr7OsuJho",
-    authDomain: "jaltrack.firebaseapp.com",
-    databaseURL: "https://jaltrack.firebaseio.com",
-    projectId: "jaltrack",
-    storageBucket: "jaltrack.appspot.com",
-    messagingSenderId: "663656952298",
-    appId: "1:663656952298:web:28493e2bcfb60053"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+var UIController = function() {
+       var UIComponents = {
+       exit_flag : document.getElementById("exit-btn"),
+       Bill : document.querySelector('.bill')
+   }
+   return {
+       UiCom : UIComponents,
+       Ui_display : function(b) {
+           console.log("Entering Ui_display()");
+           $('.bill').text(b);
+       }
+   }
+ }();
 
-var database = firebase.database();
-var lsRef = firebase.database().ref('ls');
+ var FlowController = function(UI) {
+   var flag = false, bill;
+   UI.UiCom.exit_flag.addEventListener('click', function() {
+       flag = true;
+   })
+   function start() {
+       $('.ls').text('0.00');
+       $('.total').text('0.00');
+       $('.bill').text('0.00');
+       // redirect to completion page
+   }
 
+   return {
+       Initialize : function() {
+           // Clear UI
+           start();
+       },
+       runControl : function() {
+           console.log("Entering runControl()");
+           bill = startBilling();
+           console.log("Calling Ui_display()");
+           UI.Ui_display(bill);
+       }
+   }
+ }(UIController);
+
+
+
+
+ var total, payment, b = 0.00;
+ var database = firebase.database();
+ var lsRef = firebase.database().ref('ls');
+ var totalRef = firebase.database().ref('total');
+ var bill_const = 2.0;
+
+           //var f = false;
 lsRef.on('value', function (snapshot) {
     // This snapshot returns the value of total litres/seconds automatically
-    console.log(snapshot.val());
-    $('.ls').text(snapshot.val());
+   $('.ls').text(snapshot.val());
 });
-
-var totalRef = firebase.database().ref('total');
 totalRef.on('value', function (snapshot) {
-    // This snapshot returns the value of total litres automatically
-
-    console.log(snapshot.val());
-    $('.total').text(snapshot.val());
-
+   // This snapshot returns the value of total litres automatically
+   $('.total').text(snapshot.val());
+   total = parseFloat(document.getElementById('01').innerHTML);
+   console.log(total);
+   FlowController.runControl();
 
 });
+
+   function startBilling() {
+       console.log("Entering startBilling()");
+           b = total*bill_const;
+           console.log(b);
+           return b;
+   }
+
+ FlowController.Initialize();

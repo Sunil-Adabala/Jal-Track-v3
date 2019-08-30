@@ -1,0 +1,58 @@
+
+<!--
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JALTRACK</title>
+
+  <!-- Bootstrap -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
+
+  <!---   fonts-  --->
+  <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- ---------css---------- -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- ----jquery----- -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- ----firebase---- -->
+  <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-app.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-database.js"></script>
+
+
+</head>
+
+<body class="pink darken-4">
+  <div class="row main " style="margin-top:180px;">
+    <div class="col s4"></div>
+    <div class="col s4 ">
+      <div class="hoverable card-panel cyan accent-4 black-text">
+        <img class="logo" src="pics/Jal-Track-Logo-NoBg.png" alt="Jal-Track-logo">
+        <!-- <h4 class="center-align white-text" style="font-family: 'Acme', sans-serif;"> <i class="material-icons">location_on</i>JALTRACK</h4> -->
+        <ol class="collection ">
+          <li id="firstli" class="collection-item">
+            <div class="green-text" style="font-family: 'Acme', sans-serif;">Liters/second - <span class="badge ls blue-text">4</span></div>
+          </li>
+          <li id="secondli" class="collection-item">
+            <div class="pink-text" style="font-family: 'Acme', sans-serif;">Total in litres - <span class="badge total blue-text">4</span></div>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="col s4"></div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
+</html> -->
